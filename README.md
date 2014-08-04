@@ -20,8 +20,6 @@ Options
 | cancelText 	|             	| 'Cancel'                   	|
 | template   	|             	|                            	|
 | callback   	|             	|                            	|
-|            	|             	|                            	|
-|            	|             	|                            	|
 
 
 Usage
