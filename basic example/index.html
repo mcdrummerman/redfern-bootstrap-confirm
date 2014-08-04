@@ -22,13 +22,13 @@
 
     <script>
         var cb = function(data) {
-            $('#confirmtext').text(data);
+            $('#confirmtext').hide().text(data.text).fadeIn(data.fade);
         };
 
         $('#b1').click(function () {
             $('#confirm').confirm({
                 callback: cb,
-                data: 'I am confirm 1.',
+                data: {text: 'I am confirm 1.', fade: 4000 },
                 body: 'Change the label for confirm 1?'
             });
         });
@@ -36,7 +36,7 @@
         $('#b2').click(function () {
             $('#confirm').confirm({
                 callback: cb,
-                data: 'I am confirm 2.',
+                data: {text: 'I am confirm 2.', fade: 2500 },
                 body: 'Change the label for confirm 2?'
             });
         });
@@ -45,7 +45,12 @@
             $('#confirm').confirm({
                 callback: function(data){ $('#confirmtext').text('I am from a different callback. ' + data); },
                 data: 'I am confirm 3.',
-                body: '<em><strong>Change the label for confirm 3?</strong></em>',
+                body: '<em><strong>Change the label for confirm 3?</strong></em><br/>'+
+				'<p>Note: <ul>'+
+				'<li>I was passed a body that consisted of HTML: <div class="well">&lt;em&gt;&lt;strong&gt;Change the label for confirm 3?&lt;/strong&gt;&lt;/em&gt;&lt;br/&gt;<br/>&lt;p&gt;<br/>Note: <br/>&lt;ul&gt;<br/>&lt;li&gt;I was passed a body that consisted of HTML&lt;/li&gt; <br/>&lt;li&gt;The static background option was set for this dialog&lt;/li&gt;<br/>&lt;/ul&gt;<br/>&lt;/p&gt;<br/>&lt;img src=&quot;http://lorempixel.com/400/200/sports/&quot; /&gt;</div></li>'+
+				'<li>The static background option was set for this dialog</li>'+
+				'</ul></p>'+
+				'<img src="http://lorempixel.com/400/200/sports/" />',
 				modalOptions: { backdrop: 'static' }
             });
         });
