@@ -26,11 +26,16 @@ Usage
 --------------
 
 ```sh
+// setup
 $('#confirm').confirm({
                 callback: $('#confirmtext').hide().text(data.text).fadeIn(data.fade);,
                 data: {text: 'I am confirm 2.', fade: 2500 },
                 body: 'Change the label?'
             });
+            
+$('#some-button').click(function(){
+    $('#confirm').data('confirm').show();            
+});         
 ```
 
 License
