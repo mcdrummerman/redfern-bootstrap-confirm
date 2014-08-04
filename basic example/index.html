@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Bootstrap Confirm</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="jumbotron">
+        <div id="confirm"></div>
+        <h1 id="confirmtext">Click a button below to be prompted to change me</h1>
+        <button id="b1">confirm 1</button>
+        <button id="b2">confirm 2 </button>
+        <button id="b3">confirm 3 </button>
+
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <script src="../redfern.bs.confirm.js"></script>
+
+    <script>
+        var cb = function(data) {
+            $('#confirmtext').text(data);
+        };
+
+        $('#b1').click(function () {
+            $('#confirm').confirm({
+                callback: cb,
+                data: 'I am confirm 1',
+                message: 'Change the label for confirm 1?'
+            });
+        });
+
+        $('#b2').click(function () {
+            $('#confirm').confirm({
+                callback: cb,
+                data: 'I am confirm 2',
+                message: 'Change the label for confirm 2?'
+            });
+        });
+
+        $('#b3').click(function () {
+            $('#confirm').confirm({
+                callback: cb,
+                data: 'I am confirm 3',
+                message: 'Change the label for confirm 3?'
+            });
+        });
+
+       
+    </script>
+</body>
+</html>
