@@ -61,6 +61,8 @@ $('#some-button').click(function(){
 });         
 ```
 
+The [basic example](https://github.com/mcdrummerman/redfern-bootstrap-confirm/tree/master/basic%20example) has a few more examples of how to accomplish this.
+
 License
 ----
 
