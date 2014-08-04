@@ -28,7 +28,7 @@
         $('#b1').click(function () {
             $('#confirm').confirm({
                 callback: cb,
-                data: 'I am confirm 1',
+                data: 'I am confirm 1.',
                 message: 'Change the label for confirm 1?'
             });
         });
@@ -36,15 +36,18 @@
         $('#b2').click(function () {
             $('#confirm').confirm({
                 callback: cb,
-                data: 'I am confirm 2',
+                data: 'I am confirm 2.',
                 message: 'Change the label for confirm 2?'
             });
         });
 
+		var cb2 = function(data) {
+            $('#confirmtext').text('I am from a different callback. ' + data);
+        };
         $('#b3').click(function () {
             $('#confirm').confirm({
-                callback: cb,
-                data: 'I am confirm 3',
+                callback: cb2,
+                data: 'I am confirm 3.',
                 message: 'Change the label for confirm 3?'
             });
         });
