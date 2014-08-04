@@ -1,13 +1,10 @@
 ﻿; (function ($, window, document, undefined) {
 
     // default template 
-    var defaultTemplate = '<div class="modal fade">' +
+    var defaultTemplate = '<div class="modal fade" role="dialog">' +
        '<div class="modal-dialog">' +
        '<div class="modal-content">' +
-       '<div class="modal-header">' +
-       '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>' +
-       '<h4 class="modal-title"></h4>' +
-       '</div>' +
+       '<div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title"></h4></div>' +
        '<div class="modal-body">' +
        '</div>' +
        '<div class="modal-footer">' +
@@ -24,7 +21,12 @@
         title: 'Confirm',
         body: 'Do you wish to continue?',
         okText: 'Ok',
-        cancelText: 'Cancel'
+        cancelText: 'Cancel',
+		modalOptions: 	{
+							keyboard: true,
+							show: true,
+							backdrop: true
+						}
     };
 
     // constructor
@@ -33,8 +35,8 @@
     };
 
     Confirm.prototype.setup = function (options, $element) {
-        this.options = $.extend({}, defaults, options);
-        this.$element = $element;
+        this.options = $.extend(true, {}, defaults, options);
+		this.$element = $element;
         this.init();
     };
 
@@ -43,8 +45,7 @@
 
         if (!$bsmodal.length) {
             $bsmodal = $(this.options.template);
-			
-            $bsmodal.appendTo(this.$element);
+			$bsmodal.appendTo(this.$element);
         }
 
         var cb = function (c, d) {
@@ -55,20 +56,24 @@
                     _innerCb(_data);
                 }
                 $bsmodal.modal('hide');
+				/*$bsmodal.on('hidden.bs.modal',function(){
+					this.remove();
+				});*/
             };
         }(this.options.callback, this.options.data);
 
-        $bsmodal.find('.modal-header').text(this.options.title);
+        $bsmodal.find('.modal-title').text(this.options.title);
         $bsmodal.find('.modal-body').html(this.options.body);
         $bsmodal.find('.btn-primary')
 			.text(this.options.okText)
 			.off('click').on('click', cb);
         $bsmodal.find('.btn-default').text(this.options.cancelText);
         
-        $bsmodal.modal({
-            keyboard: true,
-            show: true
-        });
+		// clear out the data so that new options are applied
+		if($bsmodal.data()['bs.modal']){
+			$bsmodal.data()['bs.modal'] = undefined;
+		}
+        $bsmodal.modal(this.options.modalOptions);
        
     };
 

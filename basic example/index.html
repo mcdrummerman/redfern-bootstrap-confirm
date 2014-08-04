@@ -29,7 +29,7 @@
             $('#confirm').confirm({
                 callback: cb,
                 data: 'I am confirm 1.',
-                message: 'Change the label for confirm 1?'
+                body: 'Change the label for confirm 1?'
             });
         });
 
@@ -37,18 +37,16 @@
             $('#confirm').confirm({
                 callback: cb,
                 data: 'I am confirm 2.',
-                message: 'Change the label for confirm 2?'
+                body: 'Change the label for confirm 2?'
             });
         });
 
-		var cb2 = function(data) {
-            $('#confirmtext').text('I am from a different callback. ' + data);
-        };
         $('#b3').click(function () {
             $('#confirm').confirm({
-                callback: cb2,
+                callback: function(data){ $('#confirmtext').text('I am from a different callback. ' + data); },
                 data: 'I am confirm 3.',
-                message: 'Change the label for confirm 3?'
+                body: '<em><strong>Change the label for confirm 3?</strong></em>',
+				modalOptions: { backdrop: 'static' }
             });
         });
 
