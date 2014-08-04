@@ -23,6 +23,27 @@ Options
 | data       	| The data that is passed to the callback function. Make sure your callback accepts a parameter in order for it to recieve the data and act on it properly. 	|                            	|
 |            	|                                                                                                                                                           	|                            	|
 
+Default Template
+----------------
+
+```sh
+<div class="modal fade in" role="dialog" aria-hidden="false">
+  <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                	<button type="button" class="close" data-dismiss="modal">×</button>
+                	<h4 class="modal-title"></h4>
+                  </div>
+                  <div class="modal-body"></div>
+                  <div class="modal-footer">
+                	<button type="button" class="btn btn-primary"></button>
+                	<button type="button" class="btn btn-default" data-dismiss="modal"></button>
+                  </div>
+                </div>
+  </div>
+</div>
+```
+
 
 Usage
 --------------
