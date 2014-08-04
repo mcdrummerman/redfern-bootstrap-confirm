@@ -56,10 +56,7 @@
                     _innerCb(_data);
                 }
                 $bsmodal.modal('hide');
-				/*$bsmodal.on('hidden.bs.modal',function(){
-					this.remove();
-				});*/
-            };
+			};
         }(this.options.callback, this.options.data);
 
         $bsmodal.find('.modal-title').text(this.options.title);
