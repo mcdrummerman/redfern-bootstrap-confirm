@@ -26,7 +26,7 @@ Options
 Default Template
 ----------------
 
-```sh
+```html
 <div class="modal fade in" role="dialog" aria-hidden="false">
   <div class="modal-dialog">
                 <div class="modal-content">
@@ -48,7 +48,7 @@ Default Template
 Usage
 --------------
 
-```sh
+```javascript
 // setup
 $('#confirm').confirm({
                 callback: $('#confirmtext').hide().text(data.text).fadeIn(data.fade);,
