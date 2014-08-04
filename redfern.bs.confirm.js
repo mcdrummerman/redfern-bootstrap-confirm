@@ -24,8 +24,7 @@
         cancelText: 'Cancel',
 		modalOptions: 	{
 							keyboard: true,
-							show: true,
-							backdrop: true
+							show: true
 						}
     };
 
