@@ -1,61 +1,103 @@
 ﻿<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Bootstrap Confirm</title>
-    <link href="css/bootstrap.css" rel="stylesheet" />
+  <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+
+  <title>Bootstrap Confirm</title>
+  <link href="css/bootstrap.css" rel="stylesheet" />
 </head>
+
 <body>
+  <div class="jumbotron">
+    <div id="confirm"></div>
 
-    <div class="jumbotron">
-        <div id="confirm"></div>
-        <h1 id="confirmtext">Click a button below to be prompted to change me</h1>
-        <button id="b1">confirm 1</button>
-        <button id="b2">confirm 2 </button>
-        <button id="b3">confirm 3 </button>
+    <div id="confirm2"></div>
 
+    <div id="confirm3"></div>
+
+    <div id="confirm4"></div>
+
+    <div id="template">
+      <div class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">close</button>
+
+              <h4 class="modal-title"></h4>
+            </div>
+
+            <div>
+              Some other stuff here because this is my template!
+            </div>
+
+            <div class="modal-body"></div>
+
+            <div class="modal-footer">
+				<button type="button" class="btn btn-primary"></button>
+				<button type="button" class="btn btn-default" data-dismiss="modal"></button>
+				<br />&copy; 2014 - I'm adding stuff to the footer
+			</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
-    <script src="scripts/bootstrap.js"></script>
-    <script src="../redfern.bs.confirm.js"></script>
+    <h1 id="confirmtext">Click a button below to be prompted to change me</h1>
+	<button id="b1">confirm 1</button> 
+	<button id="b2">confirm 2</button> 
+	<button id="b3">confirm 3</button>
+  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script> 
+  <script src="scripts/bootstrap.js"></script> 
+  <script src="../redfern.bs.confirm.js"></script> 
+  <script>
 
-    <script>
         var cb = function(data) {
             $('#confirmtext').hide().text(data.text).fadeIn(data.fade);
         };
-
-        $('#b1').click(function () {
-            $('#confirm').confirm({
-                callback: cb,
-                data: {text: 'I am confirm 1.', fade: 4000 },
-                body: 'Change the label for confirm 1?'
-            });
-        });
-
-        $('#b2').click(function () {
-            $('#confirm').confirm({
-                callback: cb,
-                data: {text: 'I am confirm 2.', fade: 2500 },
-                body: 'Change the label for confirm 2?'
-            });
-        });
-
-        $('#b3').click(function () {
-            $('#confirm').confirm({
-                callback: function(data){ $('#confirmtext').text('I am from a different callback. ' + data); },
-                data: 'I am confirm 3.',
-                body: '<em><strong>Change the label for confirm 3?</strong></em><br/>'+
-				'<p>Note: <ul>'+
-				'<li>I was passed a body that consisted of HTML: <div class="well">&lt;em&gt;&lt;strong&gt;Change the label for confirm 3?&lt;/strong&gt;&lt;/em&gt;&lt;br/&gt;<br/>&lt;p&gt;<br/>Note: <br/>&lt;ul&gt;<br/>&lt;li&gt;I was passed a body that consisted of HTML&lt;/li&gt; <br/>&lt;li&gt;The static background option was set for this dialog&lt;/li&gt;<br/>&lt;/ul&gt;<br/>&lt;/p&gt;<br/>&lt;img src=&quot;http://lorempixel.com/400/200/sports/&quot; /&gt;</div></li>'+
-				'<li>The static background option was set for this dialog</li>'+
-				'</ul></p>'+
-				'<img src="http://lorempixel.com/400/200/sports/" />',
-				modalOptions: { backdrop: 'static' }
-            });
-        });
-
        
-    </script>
+		$('#confirm').confirm({
+			callback: cb,
+			data: {text: 'I am confirm 1.', fade: 4000 },
+			body: 'Change the label for confirm 1?'
+		});
+					
+		$('#confirm2').confirm({
+			callback: cb,
+			data: {text: 'I am confirm 2.', fade: 2500 },
+			body: 'Change the label for confirm 2?'
+		});
+					
+		//this should have no effect. doing this to illustrate that the function passed in is saved in a closure and is not affected later by a change.
+		cb = function(){alert('hi');};
+		
+		$('#confirm3').confirm({
+			callback: function(data){ $('#confirmtext').text('I am from a different callback. ' + data); },
+			data: 'I am confirm 3.',
+			body: '<em><strong>Change the label for confirm 3?<\/strong><\/em><br/>'+
+							'<p>Note: <ul>'+
+							'<li>I was passed a body that consisted of HTML: <div class="well">&lt;em&gt;&lt;strong&gt;Change the label for confirm 3?&lt;/strong&gt;&lt;/em&gt;&lt;br/&gt;<br/>&lt;p&gt;<br/>Note: <br/>&lt;ul&gt;<br/>&lt;li&gt;I was passed a body that consisted of HTML&lt;/li&gt; <br/>&lt;li&gt;The static background option was set for this dialog&lt;/li&gt;<br/>&lt;/ul&gt;<br/>&lt;/p&gt;<br/>&lt;img src=&quot;http://lorempixel.com/400/200/sports/&quot; /&gt;<\/div><\/li>'+
+							'<li>The static background option was set for this dialog<\/li>'+
+							'<\/ul><\/p>'+
+							'<img src="http://lorempixel.com/400/200/sports/" />',
+			modalOptions: { backdrop: 'static' },
+			template: $('#template').html()
+		});
+			
+		$('#b1').click(function () {
+			$('#confirm').data('confirm').show();
+		});
+
+		$('#b2').click(function () {
+			$('#confirm2').data('confirm').show();
+		});
+
+		$('#b3').click(function () {
+			$('#confirm3').data('confirm').show();
+		});
+  </script>
 </body>
 </html>

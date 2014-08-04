@@ -69,9 +69,15 @@
 		if($bsmodal.data()['bs.modal']){
 			$bsmodal.data()['bs.modal'] = undefined;
 		}
-        $bsmodal.modal(this.options.modalOptions);
+        
        
     };
+	
+	Confirm.prototype.show = function(){
+		var $bsmodal = this.$element.find('.modal.fade');
+		
+		$bsmodal.modal(this.options);
+	};
 
     $.fn.confirm = function (options) {
         return this.each(function () {
