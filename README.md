@@ -12,14 +12,16 @@ Version
 Options
 -------------
 
-| Option     	| Description 	| Default                    	|
-|------------	|-------------	|----------------------------	|
-| title      	|             	| 'Confirm'                  	|
-| body       	|             	| 'Do you wish to continue?' 	|
-| okText     	|             	| 'Ok'                       	|
-| cancelText 	|             	| 'Cancel'                   	|
-| template   	|             	|                            	|
-| callback   	|             	|                            	|
+| Option     	| Description                                                                                                                                               	| Default                    	|
+|------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------	|----------------------------	|
+| title      	| The title that will be used for the modal dialog.                                                                                                         	| 'Confirm'                  	|
+| body       	| The contents of the body of the modal. This can be HTML.                                                                                                  	| 'Do you wish to continue?' 	|
+| okText     	| The text of the primary (confirmation) button.                                                                                                            	| 'Ok'                       	|
+| cancelText 	| The text of the cancel button.                                                                                                                            	| 'Cancel'                   	|
+| template   	| You can pass in a template to be used for the modal. See the basic example for an example of how to do thath                                              	| see below                  	|
+| callback   	| The function that will be called after the confirmation button has been pressed                                                                           	| null                       	|
+| data       	| The data that is passed to the callback function. Make sure your callback accepts a parameter in order for it to recieve the data and act on it properly. 	|                            	|
+|            	|                                                                                                                                                           	|                            	|
 
 
 Usage
