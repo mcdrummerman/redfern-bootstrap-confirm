@@ -24,10 +24,8 @@
         title: 'Confirm',
         message: 'Do you wish to continue?',
         okText: 'Ok',
-        canceltext: 'Cancel'
+        cancelText: 'Cancel'
     };
-
-   
 
     // constructor
     var Confirm = function (options, $element) {
@@ -45,6 +43,7 @@
 
         if (!$bsmodal.length) {
             $bsmodal = $(this.options.template);
+			
             $bsmodal.appendTo(this.$element);
         }
 
@@ -62,21 +61,15 @@
         $bsmodal.find('.modal-header').text(this.options.title);
         $bsmodal.find('.modal-body').text(this.options.message);
         $bsmodal.find('.btn-primary')
-            .text(this.options.okText)
-            .click(cb); // do click
-        $bsmodal.find('.btn-default').text(this.options.canceltext);
-        $bsmodal.find('.modal-body').text(this.options.message);
-        $bsmodal.find('.modal-body').text(this.options.message);
-        $bsmodal.find('.modal-body').text(this.options.message);
-
-
-        //  this.options.activationElement.on('click', function () {
+			.text(this.options.okText)
+			.off('click').on('click', cb);
+        $bsmodal.find('.btn-default').text(this.options.cancelText);
+        
         $bsmodal.modal({
             keyboard: true,
             show: true
         });
-        //});
-
+       
     };
 
     $.fn.confirm = function (options) {
