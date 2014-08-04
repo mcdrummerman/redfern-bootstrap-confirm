@@ -22,7 +22,7 @@
     var defaults = {
         template: defaultTemplate,
         title: 'Confirm',
-        message: 'Do you wish to continue?',
+        body: 'Do you wish to continue?',
         okText: 'Ok',
         cancelText: 'Cancel'
     };
@@ -59,7 +59,7 @@
         }(this.options.callback, this.options.data);
 
         $bsmodal.find('.modal-header').text(this.options.title);
-        $bsmodal.find('.modal-body').text(this.options.message);
+        $bsmodal.find('.modal-body').html(this.options.body);
         $bsmodal.find('.btn-primary')
 			.text(this.options.okText)
 			.off('click').on('click', cb);
