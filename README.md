@@ -1,33 +1,39 @@
-# 
+redfern-bootstrap-confirm
+=========
+
+A confirm window that will fire a custom callback. Use in place of the javascript confirm window.
 
 
+Version
+----
 
-### Options
+1.0
 
-An object sent to Confirm that will be used to setup the modal dialog.
+Options
+-------------
 
-### <span style="font-size: 16pt; text-indent: 2em;">title - <span style="font-weight: normal;">The title of the modal. </span>Default: <span style="font-weight: normal;">Confirm</span></span>
+| Option     	| Description 	| Default                    	|
+|------------	|-------------	|----------------------------	|
+| title      	|             	| 'Confirm'                  	|
+| body       	|             	| 'Do you wish to continue?' 	|
+| okText     	|             	| 'Ok'                       	|
+| cancelText 	|             	| 'Cancel'                   	|
+| template   	|             	|                            	|
+| callback   	|             	|                            	|
 
-### <span style="font-size: 16pt; text-indent: 2em;">body <span style="font-weight: normal;">- The modal body. This can be HTML.</span></span>
 
-### <span style="font-size: 16pt; text-indent: 2em;">okText - <span style="font-weight: normal;">The text for the confirm button. </span>Default:<span style="font-weight: normal;"> "Ok"</span></span>
+Usage
+--------------
 
-### <span style="font-size: 16pt; text-indent: 2em;">cancelText -&nbsp;<span style="font-weight: normal;">The text for the confirm button. </span>Default: <span style="font-weight: normal;">"Cancel"</span></span>
-### <span style="font-size: 16pt; text-indent: 2em;">template - </span> You can send in your own template but it is recommended you stick with the default.<span style="font-size: 16pt; text-indent: 2em;">**modalOptions - **&nbsp;These are the options that are sent to the Bootstrap modal, you can find their documentation here:&nbsp;</span><span style="font-size: 21px;">http://getbootstrap.com/javascript/#modals-usage</span></div><div><span style="font-size: 21px;">
-</span></div>
-
-### <span style="font-size: 21px;">Usage</span>
-
+```sh
 $('#confirm').confirm({
+                callback: $('#confirmtext').hide().text(data.text).fadeIn(data.fade);,
+                data: {text: 'I am confirm 2.', fade: 2500 },
+                body: 'Change the label?'
+            });
+```
 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; callback: function(data){ $('#confirmtext').text('data.text); },
+License
+----
 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data: {text: 'I am confirm 1.'},
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; body: 'Change the label for confirm 1?'
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });
-
-See the example the basic example (https://github.com/mcdrummerman/redfern-bootstrap-confirm/tree/master/basic%20example) index.html for more examples.
-<div>
-</div>
+MIT
