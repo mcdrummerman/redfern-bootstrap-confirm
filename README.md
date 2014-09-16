@@ -20,7 +20,7 @@ Options
 | cancelText 	| The text of the cancel button.                                                                                                                            	| 'Cancel'                   	|
 | template   	| You can pass in a template to be used for the modal. See the  ([basic example](https://github.com/mcdrummerman/redfern-bootstrap-confirm/tree/master/basic%20example)) for an example of how to do this.                                              	| see below                  	|
 | callback   	| The function that will be called after the confirmation button has been pressed                                                                           	| null                       	|
-| data       	| The data that is passed to the callback function. Make sure your callback accepts a parameter in order for it to recieve the data and act on it properly. 	|                          |
+| data       	| The data that is passed to the callback function. Make sure your callback accepts a parameter in order for it to recieve the data and act on it properly. 	|     Empty function --> function(){}                     |
 | hideCancel	| Determines whether or not to hide the cancel button 	| false	|        |            	|   	|              	|
 
 
