@@ -22,6 +22,8 @@ Options
 | callback   	| The function that will be called after the confirmation button has been pressed                                                                           	| null                       	|
 | data       	| The data that is passed to the callback function. Make sure your callback accepts a parameter in order for it to recieve the data and act on it properly. 	|                            	|
 |            	|                                                                                                                                                           	|                            	|
+| hideCancel	| Determines whether or not to hide the cancel button 	| false	|        |            	|   	|              	|
+
 
 Default Template
 ----------------
@@ -51,7 +53,7 @@ Usage
 ```javascript
 // setup
 $('#confirm').confirm({
-                callback: $('#confirmtext').hide().text(data.text).fadeIn(data.fade);,
+                callback: function(){ $('#confirmtext').hide().text(data.text).fadeIn(data.fade); },
                 data: {text: 'I am confirm 2.', fade: 2500 },
                 body: 'Change the label?'
             });
