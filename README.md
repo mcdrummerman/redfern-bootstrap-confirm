@@ -7,7 +7,7 @@ A confirm window that will fire a custom callback. Use in place of the javascrip
 Version
 ----
 
-1.0
+1.1
 
 Options
 -------------
@@ -58,7 +58,7 @@ $('#confirm').confirm({
             });
             
 $('#some-button').click(function(){
-    $('#confirm').data('confirm').show();            
+    $('#confirm').confirm('show');            
 });         
 ```
 
