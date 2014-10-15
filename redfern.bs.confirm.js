@@ -33,7 +33,9 @@
         }
     };
 
-    // constructor
+    /**
+	* @constructor
+	*/
     var Confirm = function (options, $element) {
         var t = this;
 
