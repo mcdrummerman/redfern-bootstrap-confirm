@@ -62,7 +62,7 @@ $('#some-button').click(function(){
 });         
 ```
 
-The [GitHub Page](http://github.com/mcdrummerman/redfern-bootstrap-confirm) has more examples.
+The [GitHub Page](http://mcdrummerman.github.io/redfern-bootstrap-confirm) has more examples.
 
 License
 ----
