@@ -7,7 +7,7 @@ A confirm window based on Twitter's Bootstrap that will fire a custom callback. 
 Version
 ----
 
-1.1
+1.2
 
 Options
 -------------
@@ -20,7 +20,9 @@ Options
 | cancelText 	| The text of the cancel button.                                                                                                                            	| 'Cancel'                   	|
 | template   	| You can pass in a template to be used for the modal. See the  ([GitHub Page](http://mcdrummerman.github.io/redfern-bootstrap-confirm)) for an example of how to do this.                                              	| see below                  	|
 | callback   	| The function that will be called after the confirmation button has been pressed                                                                           	| Empty function --> function(){} |
+| cancelCallback       	| Callback to be fired when the cancel button is clicked.                                                                                                  	| Empty function --> function(){} 	|
 | data       	| The data that is passed to the callback function. Make sure your callback accepts a parameter in order for it to receive the data and act on it properly. 	|    Empty object --> {}   |
+| cancelData       	| The data that is passed to the cancelCallback function. Make sure your callback accepts a parameter in order for it to receive the data and act on it properly. 	|    Empty object --> {}   |
 | hideCancel	| Determines whether or not to hide the cancel button 	| false	|        |            	|   	|              	|
 
 
@@ -52,7 +54,7 @@ Usage
 ```javascript
 // setup
 $('#confirm').confirm({
-                callback: function(){ $('#confirmtext').hide().text(data.text).fadeIn(data.fade); },
+                callback: function(args){ $('#confirmtext').hide().text(args.text).fadeIn(args.fade); },
                 data: {text: 'I am confirm 2.', fade: 2500 },
                 body: 'Change the label?'
             });
