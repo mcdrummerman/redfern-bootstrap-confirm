@@ -26,7 +26,9 @@
         hideCancel: false,
         cancelSelector: '[data-dismiss=modal]',
         callback: function () { },
+        cancelCallback: function () { },
         data: {},
+        cancelData: {},
         modalOptions: {
             keyboard: true,
             show: true
@@ -80,7 +82,7 @@
             }
 
 
-            var cb = function (c, d) {
+            var okCallBack = function (c, d) {
                 return function () {
                     var innerCb = c;
                     var data = d;
@@ -91,13 +93,24 @@
                 };
             }(confirm._options.callback, confirm._options.data);
 
+            var cancelCallBack = function (e, f) {
+                return function () {
+                    var innerCancelCb = e;
+                    var cancelData = f;
+                    if (innerCancelCb) {
+                        innerCancelCb(cancelData);
+                    }
+                    $bsmodal.modal('hide');
+                };
+            }(confirm._options.cancelCallback, confirm._options.cancelData);
+
             confirm.setTitle(confirm._options.title);
             confirm.setBody(confirm._options.body);
 
             $bsmodal.find('.btn-primary')
                 .text(confirm._options.okText)
                 .off('click').on('click', function () {
-                    cb();
+                    okCallBack();
                     confirm._result = true;
                 });
 
@@ -105,6 +118,7 @@
                 .text(confirm._options.cancelText)
                 .off('click')
                 .on('click', function () {
+                    cancelCallBack();
                     confirm._result = false;
                 });
 
