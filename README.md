@@ -7,7 +7,7 @@ A confirm window based on Twitter's Bootstrap that will fire a custom callback. 
 Version
 ----
 
-1.25
+1.2.5
 
 Options
 -------------
