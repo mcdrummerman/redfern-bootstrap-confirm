@@ -23,6 +23,7 @@
         body: 'Do you wish to continue?',
         okText: 'OK',
         cancelText: 'Cancel',
+	hideClose: true,
         hideCancel: false,
         cancelSelector: '[data-dismiss=modal]',
         callback: function () { },
@@ -31,7 +32,8 @@
         cancelData: {},
         modalOptions: {
             keyboard: true,
-            show: true
+            show: true,
+            backdrop: 'static'
         }
     };
 
@@ -46,6 +48,8 @@
         t.setBody = setBody;
         t.showCancelButton = showCancelButton;
         t.hideCancelButton = hideCancelButton;
+        t.hideCloseButton = hideCloseButton;
+        t.showCloseButton = showCloseButton;
         t.show = show;
         t.destroy = destroy;
         t.reInitialize = reInitialize;
@@ -79,6 +83,13 @@
                 confirm.hideCancelButton();
             } else {
                 confirm.showCancelButton();
+            }
+
+            // optionally hide the close button 
+            if (confirm._options.hideClose) {
+                confirm.hideCloseButton();
+            } else {
+                confirm.showCloseButton();
             }
 
 
@@ -152,6 +163,14 @@
 
         function hideCancelButton() {
             this._element.find('.btn-default').hide();
+        };
+
+        function hideCloseButton() {
+            this._element.find('button.close').hide();
+        };
+
+        function showCloseButton() {
+            this._element.find('button.close').show();
         };
 
     };
