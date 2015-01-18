@@ -25,7 +25,7 @@ Options
 | cancelData       	| The data that is passed to the cancelCallback function. Make sure your callback accepts a parameter in order for it to receive the data and act on it properly. 	|    Empty object --> {}   |
 | hideCancel	| Determines whether or not to hide the cancel button 	| false	|        |            	|   	|              	|
 | hideClose	| Determines whether or not to hide the close button 	| true	|        |            	|   	|              	|
-| modalOptions	| Plain object passed to the bootstrap modal that represents its options 	| modalOptions: { keyboard: false, show: true, backdrop: 'static'}	|        |            	|   	|              	|
+| modalOptions	| Plain object passed to the bootstrap modal that represents its options 	| modalOptions: { keyboard: false, show: false, backdrop: 'static'}	|        |            	|   	|              	|
 
 
 Default Template
