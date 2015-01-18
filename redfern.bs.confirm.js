@@ -23,7 +23,7 @@
         body: 'Do you wish to continue?',
         okText: 'OK',
         cancelText: 'Cancel',
-	hideClose: true,
+        hideClose: true,
         hideCancel: false,
         cancelSelector: '[data-dismiss=modal]',
         callback: function () { },
@@ -31,7 +31,7 @@
         data: {},
         cancelData: {},
         modalOptions: {
-            keyboard: true,
+            keyboard: false,
             show: true,
             backdrop: 'static'
         }
