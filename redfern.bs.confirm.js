@@ -1,5 +1,3 @@
-
-;
 (function ($, window, document, undefined) {
 
     var defaultTemplate = '<div class="modal fade" role="dialog">' +
@@ -63,11 +61,11 @@
             confirm._result = false;
 
             init(confirm);
-        };
+        }
 
         function reInitialize(opt, $el) {
             setup(this, opt, $el);
-        };
+        }
 
         function init(confirm) {
 
@@ -137,41 +135,41 @@
             if ($bsmodal.data()['bs.modal']) {
                 $bsmodal.data()['bs.modal'] = undefined;
             }
-        };
+        }
 
         function setTitle(title) {
             this._element.find('.modal-title').text(title);
-        };
+        }
 
         function show() {
             var $bsmodal = this._element.find('.modal.fade');
             $bsmodal.modal(this._options.modalOptions);
-        };
+        }
 
         function destroy() {
             this._element.removeData('confirm');
             this._element.find('.modal.fade').remove();
-        };
+        }
 
         function setBody(bodyText) {
             this._element.find('.modal-body').html(bodyText);
-        };
+        }
 
         function showCancelButton() {
             this._element.find('.btn-default').show();
-        };
+        }
 
         function hideCancelButton() {
             this._element.find('.btn-default').hide();
-        };
+        }
 
         function hideCloseButton() {
             this._element.find('button.close').hide();
-        };
+        }
 
         function showCloseButton() {
             this._element.find('button.close').show();
-        };
+        }
 
     };
 
