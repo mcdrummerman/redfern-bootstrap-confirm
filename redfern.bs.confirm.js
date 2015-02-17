@@ -30,7 +30,7 @@
         cancelData: {},
         modalOptions: {
             keyboard: false,
-            show: false,
+            show: true,
             backdrop: 'static'
         }
     };
